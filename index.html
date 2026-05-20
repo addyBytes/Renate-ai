@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>renate.ai — Autopilot your hiring</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#fff;
+color:#111;
+overflow-x:hidden;
+}
+
+/* NAV */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 60px;
+border-bottom:1px solid #eee;
+position:sticky;
+top:0;
+background:white;
+z-index:1000;
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+color:#6C3BF5;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#444;
+font-size:14px;
+}
+
+.nav-right{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.btn-purple{
+background:#6C3BF5;
+color:white;
+border:none;
+padding:12px 22px;
+border-radius:999px;
+cursor:pointer;
+font-weight:600;
+}
+
+.btn-white{
+background:white;
+border:1px solid #ddd;
+padding:12px 22px;
+border-radius:999px;
+cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+padding:100px 60px;
+background:linear-gradient(to bottom,#fff,#f1ebff);
+position:relative;
+}
+
+.hero h1{
+font-size:72px;
+line-height:1;
+font-weight:900;
+letter-spacing:-3px;
+max-width:750px;
+}
+
+.hero p{
+margin-top:20px;
+max-width:420px;
+color:#666;
+line-height:1.8;
+font-size:14px;
+}
+
+.hero-buttons{
+display:flex;
+gap:15px;
+margin-top:35px;
+}
+
+.ask-ai{
+position:absolute;
+right:60px;
+bottom:50px;
+background:white;
+padding:10px 18px;
+border-radius:999px;
+border:1px solid #eee;
+box-shadow:0 5px 20px rgba(0,0,0,.06);
+font-size:14px;
+}
+
+/* TRUST */
+
+.trust{
+display:flex;
+align-items:center;
+gap:40px;
+padding:25px 60px;
+background:#f5efff;
+overflow:auto;
+}
+
+.trust p{
+font-size:13px;
+color:#777;
+min-width:120px;
+}
+
+.trust-logos{
+display:flex;
+gap:45px;
+font-weight:800;
+white-space:nowrap;
+}
+
+/* FEATURES */
+
+.features{
+padding:100px 60px;
+}
+
+.tag{
+font-size:13px;
+margin-bottom:20px;
+color:#888;
+}
+
+.features h2{
+font-size:58px;
+line-height:1;
+font-weight:900;
+letter-spacing:-2px;
+}
+
+.features-sub{
+margin-top:15px;
+max-width:400px;
+color:#777;
+line-height:1.7;
+font-size:14px;
+}
+
+.tabs{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:35px;
+}
+
+.tab{
+padding:12px 22px;
+border:1px solid #ddd;
+border-radius:999px;
+font-size:14px;
+background:white;
+}
+
+.tab.active{
+border:1px solid #6C3BF5;
+color:#6C3BF5;
+font-weight:700;
+}
+
+.feature-box{
+margin-top:30px;
+border:1px solid #eee;
+border-radius:24px;
+padding:25px;
+display:flex;
+gap:30px;
+position:relative;
+}
+
+.mock-ui{
+flex:1.5;
+background:#f7f3ff;
+border-radius:20px;
+padding:20px;
+display:flex;
+gap:20px;
+}
+
+.mock-left,
+.mock-right{
+background:white;
+border-radius:14px;
+padding:15px;
+flex:1;
+}
+
+.mock-card{
+background:#f5f2ff;
+border-radius:10px;
+height:45px;
+margin-bottom:10px;
+}
+
+.ai-card{
+position:absolute;
+right:33%;
+top:40px;
+background:#6C3BF5;
+color:white;
+padding:20px;
+border-radius:20px;
+width:180px;
+box-shadow:0 10px 30px rgba(108,59,245,.35);
+}
+
+.ai-card h4{
+font-size:15px;
+margin-bottom:10px;
+}
+
+.ai-card p{
+font-size:12px;
+line-height:1.6;
+opacity:.9;
+}
+
+.ai-card button{
+margin-top:12px;
+width:100%;
+padding:10px;
+border:none;
+border-radius:10px;
+background:rgba(255,255,255,.18);
+color:white;
+}
+
+.feature-content{
+flex:1;
+padding-top:180px;
+}
+
+.feature-content h3{
+font-size:30px;
+line-height:1.2;
+}
+
+.feature-content ul{
+margin-top:20px;
+padding-left:20px;
+color:#555;
+line-height:2;
+}
+
+/* DARK */
+
+.dark{
+background:#16042f;
+padding:100px 60px;
+text-align:center;
+color:white;
+}
+
+.dark-tag{
+display:inline-block;
+padding:10px 18px;
+border-radius:999px;
+border:1px solid rgba(255,255,255,.15);
+font-size:13px;
+margin-bottom:30px;
+}
+
+.dark h2{
+font-size:54px;
+line-height:1.1;
+max-width:700px;
+margin:auto;
+}
+
+.dark p{
+margin-top:20px;
+color:rgba(255,255,255,.6);
+max-width:500px;
+margin-inline:auto;
+line-height:1.8;
+}
+
+.dark-buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:35px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+margin-top:70px;
+}
+
+.stat h3{
+font-size:42px;
+}
+
+.stat span{
+font-size:13px;
+opacity:.6;
+}
+
+.dark-cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+margin-top:50px;
+}
+
+.dark-card{
+background:white;
+color:#111;
+border-radius:22px;
+padding:22px;
+text-align:left;
+}
+
+.dark-card-image{
+height:190px;
+border-radius:18px;
+background:linear-gradient(135deg,#ddd1ff,#6C3BF5);
+margin-bottom:20px;
+}
+
+.dark-card h4{
+font-size:18px;
+}
+
+.dark-card p{
+color:#666;
+font-size:14px;
+margin-top:10px;
+}
+
+/* SCALE */
+
+.scale{
+padding:100px 60px;
+}
+
+.scale h2{
+font-size:60px;
+line-height:1;
+letter-spacing:-2px;
+}
+
+.scale p{
+margin-top:20px;
+max-width:450px;
+line-height:1.8;
+color:#777;
+}
+
+.scale-buttons{
+display:flex;
+gap:15px;
+margin-top:30px;
+}
+
+.client-cards{
+margin-top:45px;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.client{
+border:1px solid #eee;
+border-radius:18px;
+padding:25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px;
+}
+
+.client-logo{
+font-weight:800;
+min-width:150px;
+}
+
+.client-stats{
+display:flex;
+flex:1;
+justify-content:space-around;
+}
+
+.client-stat h4{
+font-size:22px;
+}
+
+.client-stat span{
+font-size:14px;
+color:#777;
+}
+
+/* PHOTO */
+
+.photo{
+height:350px;
+background:linear-gradient(135deg,#25104f,#130625);
+display:flex;
+align-items:center;
+padding:60px;
+position:relative;
+overflow:hidden;
+}
+
+.photo::before{
+content:'';
+position:absolute;
+width:600px;
+height:600px;
+background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);
+right:-200px;
+top:-100px;
+}
+
+.photo-content{
+position:relative;
+z-index:2;
+}
+
+.photo button{
+background:#6C3BF5;
+border:none;
+padding:12px 22px;
+border-radius:999px;
+color:white;
+margin-bottom:20px;
+}
+
+.photo h2{
+font-size:50px;
+color:white;
+line-height:1.1;
+}
+
+/* FOOTER */
+
+footer{
+padding:70px 60px;
+}
+
+.footer-top{
+display:flex;
+justify-content:space-between;
+gap:40px;
+}
+
+.footer-title{
+font-size:52px;
+font-weight:900;
+}
+
+.footer-title span{
+color:#6C3BF5;
+}
+
+.footer-links{
+display:flex;
+gap:80px;
+}
+
+.footer-links div{
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+
+.footer-links a{
+text-decoration:none;
+color:#555;
+}
+
+.footer-bottom{
+margin-top:50px;
+padding-top:25px;
+border-top:1px solid #eee;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.socials{
+display:flex;
+gap:10px;
+}
+
+.social{
+width:38px;
+height:38px;
+border-radius:50%;
+background:#f5f2ff;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+@media(max-width:900px){
+
+nav{
+padding:18px 20px;
+flex-direction:column;
+gap:20px;
+}
+
+.hero,
+.features,
+.dark,
+.scale,
+footer{
+padding:70px 20px;
+}
+
+.hero h1,
+.features h2,
+.dark h2,
+.scale h2,
+.footer-title,
+.photo h2{
+font-size:38px;
+}
+
+.feature-box{
+flex-direction:column;
+}
+
+.feature-content{
+padding-top:20px;
+}
+
+.ai-card{
+position:relative;
+right:auto;
+top:auto;
+margin:20px 0;
+width:100%;
+}
+
+.dark-cards,
+.stats{
+grid-template-columns:1fr;
+}
+
+.client{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.client-stats{
+flex-direction:column;
+gap:20px;
+}
+
+.footer-top{
+flex-direction:column;
+}
+
+.footer-links{
+gap:40px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+renate.ai
+</div>
+
+<div class="nav-links">
+<a href="#">Products</a>
+<a href="#">Customers</a>
+<a href="#">Pricing</a>
+<a href="#">About</a>
+</div>
+
+<div class="nav-right">
+<button class="btn-purple">Get Free Trial</button>
+<button class="btn-white">Login / Signup</button>
+</div>
+
+</nav>
+
+<section class="hero">
+
+<h1>
+Autopilot your hiring
+speed, accuracy, and scale.
+</h1>
+
+<p>
+Renate is an AI hiring infrastructure to grow your value, culture & efficiency.
+Flexible hiring solutions for every business model with AI.
+</p>
+
+<div class="hero-buttons">
+<button class="btn-purple">Get Started</button>
+<button class="btn-white">Start Free Trial</button>
+</div>
+
+<div class="ask-ai">
+Ask AI
+</div>
+
+</section>
+
+<section class="trust">
+
+<p>Trusted by 100+ organisations</p>
+
+<div class="trust-logos">
+<span>tumblr</span>
+<span>stripe</span>
+<span>Bullhorn</span>
+<span>AJIO</span>
+<span>Discord</span>
+<span>PBM INFOTEC</span>
+</div>
+
+</section>
+
+<section class="features">
+
+<div class="tag">speed</div>
+
+<h2>Everything A Recruiter Needs.</h2>
+<h2>In One Platform.</h2>
+
+<p class="features-sub">
+From first course to a full-scale academy—create unlimited products,
+reach wider audience, and build multiple income streams.
+</p>
+
+<div class="tabs">
+<button class="tab active">Job Upload</button>
+<button class="tab">AI Screening</button>
+<button class="tab">Ranking</button>
+<button class="tab">Insights</button>
+<button class="tab">Pipeline</button>
+<button class="tab">Analytics</button>
+</div>
+
+<div class="feature-box">
+
+<div class="mock-ui">
+
+<div class="mock-left">
+<div class="mock-card"></div>
+<div class="mock-card"></div>
+<div class="mock-card"></div>
+<div class="mock-card"></div>
+</div>
+
+<div class="mock-right">
+<div class="mock-card"></div>
+<div class="mock-card"></div>
+<div class="mock-card"></div>
+<div class="mock-card"></div>
+</div>
+
+</div>
+
+<div class="ai-card">
+<h4>AI-Powered Hiring</h4>
+<p>
+Save time. Hire better.
+Let AI find the right candidates for you.
+</p>
+<button>See How It Works</button>
+</div>
+
+<div class="feature-content">
+
+<h3>Start with a job. We'll handle the rest.</h3>
+
+<ul>
+<li>Extracts skills, experience and role expectations automatically</li>
+<li>Structures your job for better candidate matching</li>
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="dark">
+
+<div class="dark-tag">Accuracy</div>
+
+<h2>
+Emerging institutions and fintech are recruiting with renate.
+</h2>
+
+<p>
+Renate is an AI hiring infrastructure to grow your value, culture &
+efficiency. Flexible hiring solutions for every business model with AI.
+</p>
+
+<div class="dark-buttons">
+<button class="btn-white">Start Free Trial</button>
+<button class="btn-purple">Book a demo</button>
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3>92%</h3>
+<span>AI Match Accuracy</span>
+</div>
+
+<div class="stat">
+<h3>1000+</h3>
+<span>Candidates Screened Daily</span>
+</div>
+
+<div class="stat">
+<h3>24 Hours</h3>
+<span>To Deliver Top Candidates</span>
+</div>
+
+<div class="stat">
+<h3>80% Faster</h3>
+<span>Hiring Process</span>
+</div>
+
+</div>
+
+<div class="dark-cards">
+
+<div class="dark-card">
+<div class="dark-card-image"></div>
+<h4>Data-Driven Hiring Analytics</h4>
+<p>
+Measure performance, identify bottlenecks and improve outcomes.
+</p>
+</div>
+
+<div class="dark-card">
+<div class="dark-card-image"></div>
+<h4>Smart Ranking System</h4>
+<p>
+Every candidate is scored based on real job fit and potential.
+</p>
+</div>
+
+<div class="dark-card">
+<div class="dark-card-image"></div>
+<h4>AI That Learns With You</h4>
+<p>
+Continuously improves based on your hiring decisions.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="scale">
+
+<h2>Grow your Team that</h2>
+<h2>Builds, Sells & Scales</h2>
+
+<p>
+Other platforms give you tools. Renate gives you intelligence.
+Every part of your business learns, improves and works harder over time.
+</p>
+
+<div class="scale-buttons">
+<button class="btn-purple">Get Started</button>
+<button class="btn-white">Start Free Trial</button>
+</div>
+
+<div class="client-cards">
+
+<div class="client">
+<div class="client-logo">SCHMITZ</div>
+
+<div class="client-stats">
+
+<div class="client-stat">
+<h4>Top 0.1%</h4>
+<span>Candidates Identified by AI</span>
+</div>
+
+<div class="client-stat">
+<h4>0 Manual Screening</h4>
+<span>Fully Automated Workflow</span>
+</div>
+
+</div>
+</div>
+
+<div class="client">
+
+<div class="client-logo">Bullhorn</div>
+
+<div class="client-stats">
+
+<div class="client-stat">
+<h4>3x Faster</h4>
+<span>Shortlisting vs Traditional Hiring</span>
+</div>
+
+</div>
+
+</div>
+
+<div class="client">
+
+<div class="client-logo">Dr.Reddy's</div>
+
+<div class="client-stats">
+
+<div class="client-stat">
+<h4>80%</h4>
+<span>Reduction in Hiring Time</span>
+</div>
+
+<div class="client-stat">
+<h4>5x Faster</h4>
+<span>Hiring Cycles</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="photo">
+
+<div class="photo-content">
+
+<button>Book a demo</button>
+
+<h2>
+Grow your Team that
+Builds, Sells & Scales
+</h2>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="footer-top">
+
+<div class="footer-title">
+Experience <span>comfort.</span>
+</div>
+
+<div class="footer-links">
+
+<div>
+<a href="#">Download</a>
+<a href="#">Product</a>
+<a href="#">Docs</a>
+<a href="#">Changelog</a>
+<a href="#">Press</a>
+</div>
+
+<div>
+<a href="#">Releases</a>
+<a href="#">Blog</a>
+<a href="#">Pricing</a>
+<a href="#">Use Cases</a>
+</div>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<div class="socials">
+
+<div class="social">IG</div>
+<div class="social">FB</div>
+<div class="social">X</div>
+<div class="social">IN</div>
+
+</div>
+
+<div>
+renate.ai
+</div>
+
+<div>
+© 2026 renate.ai Inc.
+</div>
+
+</div>
+
+</footer>
+
+<script>
+
+const tabs=document.querySelectorAll('.tab');
+
+tabs.forEach(tab=>{
+
+tab.addEventListener('click',()=>{
+
+tabs.forEach(t=>t.classList.remove('active'));
+
+tab.classList.add('active');
+
+});
+
+});
+
+</script>
+
+</body>
+  </html>
